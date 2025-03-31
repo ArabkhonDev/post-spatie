@@ -63,7 +63,7 @@ class PostController extends Controller
             'file'=> $path ?? null,
         ]);
 
-        return redirect()->route('posts.show')->with(['success'=>'post updated', 'post'=>$post]);
+        return redirect()->route('posts.show')->with(['post'=>$post]);
     }
 
     public function destroy(Post $post)

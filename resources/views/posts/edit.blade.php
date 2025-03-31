@@ -12,7 +12,7 @@
             @endif
         <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Edit</h2>
         
-        <form class="space-y-4" accept="{{route('posts.update', $post->id)}}" method="get">
+        <form class="space-y-4" action="{{route('posts.update', $post->id)}}" method="post">
             @method('put')
             @csrf
             <div>

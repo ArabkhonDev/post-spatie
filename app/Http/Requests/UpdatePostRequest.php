@@ -16,7 +16,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title'=>'required|max:255',
             'desc'=> 'required',
-            'file'=> 'required|mimes:jpeg,jpg,bmp,png,svg, webp|max:4096',
+            // 'file'=> 'mimes:jpeg,jpg,bmp,png,svg,webp|max:4096',
         ];
     }
 
