@@ -1,5 +1,14 @@
 <x-app-layout>
     <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Create</h2>
         

@@ -21,13 +21,11 @@
                 <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">
                     <a href="{{route('posts.edit', $post->id)}}">Edit post</a>
                 </button>
-                @can
                     <form action="{{route('posts.destroy', $post->id)}}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-primary">Delete post</button>
+                        <button type="submit" class="bg-yellow-400 py-2 px-4 ml-2 rounded">Delete post</button>
                     </form>
-                @endcan
             </div>
         </div>
       </div>
