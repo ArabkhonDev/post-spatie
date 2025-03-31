@@ -13,10 +13,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
-Route::resources([
-    'posts'=> PostController::class,
-    'users'=>UserController::class
-]);
+Route::prefix('admin')->group(function () {
+    Route::resources([
+        'posts'=> PostController::class,
+        'users'=>UserController::class
+    ]);
+});
 
 require __DIR__.'/auth.php';

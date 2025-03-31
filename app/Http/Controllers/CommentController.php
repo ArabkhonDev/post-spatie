@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -27,9 +28,15 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $comment = Comment::create([
+            "desc"=> $request->title,
+            "user_id"=> auth()->user()->id,
+            'post_id'=> $request->post_id,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
