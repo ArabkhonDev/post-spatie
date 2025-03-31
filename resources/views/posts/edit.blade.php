@@ -12,7 +12,7 @@
             @endif
         <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Edit</h2>
         
-        <form class="space-y-4" action="{{route('posts.update', $post->id)}}" method="post">
+        <form class="space-y-4" action="{{route('posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div>

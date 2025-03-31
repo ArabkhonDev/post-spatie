@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy("created_at","desc")->paginate(9);
+        $posts = Post::orderBy("created_at","desc")->paginate(15);
 
         return view("posts.index", compact("posts"));
     }
@@ -35,6 +35,8 @@ class PostController extends Controller
             'user_id'=> auth()->user()->id,
             'file'=> $path ?? null,
         ]);
+
+        return redirect()->route('posts.index')->with('success','created post');
     }
 
     public function show(Post $post)
@@ -63,11 +65,14 @@ class PostController extends Controller
             'file'=> $path ?? null,
         ]);
 
-        return redirect()->route('posts.show')->with(['post'=>$post]);
+        return redirect()->route('posts.show', compact('post'));
     }
 
     public function destroy(Post $post)
     {
+        if($post->file){
+            Storage::delete($post->file);
+        }
         $post->delete();
         return redirect()->route("posts.index")->with("success","post deleted");
     }

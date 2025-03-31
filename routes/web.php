@@ -14,7 +14,7 @@ Route::get('/dashboard', function(){
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+    Route::resource('/comments', CommentController::class);
 });
 
 Route::middleware(['auth', 'role:admin|writer'])->group(function () {
