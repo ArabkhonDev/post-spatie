@@ -25,9 +25,8 @@ class RoleSeeder extends Seeder
         $admin = User::find(1);
         $admin->assignRole($adminRole);
 
-
-        $writer1 = User::find(2);
-        $writer1->assignRole($writerRole);
+        $writer = User::find(2);
+        $writer->assignRole($writerRole);
 
         $writer2 = User::find(3);
         $writer2->assignRole($writerRole);
